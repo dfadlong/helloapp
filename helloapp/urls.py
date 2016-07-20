@@ -16,11 +16,6 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-from sayhi.views import greeting
-from saybye.views import farewell
-
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', greeting),
-    url(r'^bye/', farewell),
 ]
