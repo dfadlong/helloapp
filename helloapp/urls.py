@@ -16,6 +16,9 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+from movielist.views import show_movie
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', show_movie)
 ]
