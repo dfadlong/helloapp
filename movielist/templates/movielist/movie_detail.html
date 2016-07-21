@@ -7,7 +7,7 @@
 
 {% block content %}
 
-Movie{{ movies|length|pluralize }}:
+{{ num }} Movie{{ movies|length|pluralize }}:
 <ul>
 
 {% for m in movies %}
@@ -19,5 +19,7 @@ Title: {{ m.title }}, Year: {{ m.year }}
 {% endfor %}
 
 </ul>
+
+<a href="/?year={{ year }}&amp;page={{ next_page }}">Next</a>
 
 {% endblock %}
