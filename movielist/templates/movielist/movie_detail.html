@@ -1,5 +1,10 @@
-<h2>{{ m.title }}</h2>
+{% extends "base.html" %}
 
-<p>I like this movie!</p>
 
-<p>It came out in: {{ m.year }}</p>
+{% block header %}
+<h2>{{ movie.title }}</h2>
+{% endblock %}
+
+{% block content %}
+<p>Title: {{ movie.title }}, Year: {{ movie.year }}</p>
+{% endblock %}

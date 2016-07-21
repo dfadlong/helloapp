@@ -13,6 +13,6 @@ def show_movie(request):
 	template = loader.get_template(
 		'movielist/movie_detail.html')
 	# Only take the first movie.
-	context = Context({'m': movie_list[0]})
+	context = Context({'movie': movie_list[0]})
 	output = template.render(context)
 	return HttpResponse(output)
