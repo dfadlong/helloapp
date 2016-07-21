@@ -6,5 +6,18 @@
 {% endblock %}
 
 {% block content %}
-<p>Title: {{ movie.title }}, Year: {{ movie.year }}</p>
+
+Movie{{ movies|length|pluralize }}:
+<ul>
+
+{% for m in movies %}
+
+<li>
+Title: {{ m.title }}, Year: {{ m.year }}
+</li>
+
+{% endfor %}
+
+</ul>
+
 {% endblock %}
