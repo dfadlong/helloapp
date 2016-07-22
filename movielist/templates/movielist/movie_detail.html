@@ -13,13 +13,13 @@
 {% for m in movies %}
 
 <li>
-Title: {{ m.title }}, Year: {{ m.year }}
+Title: {{ m.title }}, Director: {{ m.director }}, Year: {{ m.year }}
 </li>
 
 {% endfor %}
 
 </ul>
 
-<a href="/?year={{ year }}&amp;page={{ next_page }}">Next</a>
+<a href="/?director={{ director }}&amp;page={{ next_page }}">Next</a>
 
 {% endblock %}

@@ -9,11 +9,11 @@ from movielist.models import Movie
 from django.template import Context, loader
 
 def show_movie(request):
-	year = request.GET.get('year', '')
+	director = request.GET.get('director', '')
 	page = int(request.GET.get('page', '0'))
 
-	if year:
-		movie_list = Movie.objects.filter(year=year)
+	if director:
+		movie_list = Movie.objects.filter(director=director)
 	else:
 		movie_list = Movie.objects.all()
 	num = len(movie_list)
@@ -23,7 +23,7 @@ def show_movie(request):
 	context = {
 		'movies': movie_list[page * 10: page * 10 + 10],
 		'num': num,
-		'year': year,
+		'director': director,
 		'next_page': page + 1,
 	}
 	output = template.render(context)
