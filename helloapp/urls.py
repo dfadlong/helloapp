@@ -17,8 +17,10 @@ from django.conf.urls import url
 from django.contrib import admin
 
 from movielist.views import show_movie
+from movielist.views import show_single_movie
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', show_movie)
+    url(r'^$', show_movie),
+    url(r'^movie/([\w-]+)$', show_single_movie)
 ]

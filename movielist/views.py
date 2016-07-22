@@ -3,6 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 
 from django.http import HttpResponse
+from django.http import Http404
 
 from movielist.models import Movie
 
@@ -28,3 +29,16 @@ def show_movie(request):
 	}
 	output = template.render(context)
 	return HttpResponse(output)
+
+
+def show_single_movie(request, slug):
+	try:
+		movie = Movie.objects.get(slug=slug)
+	except Movie.DoesNotExist:
+		return HttpResponse('Not found')
+	template = loader.get_template(
+		'movielist/movie_detail.html')
+	context = Context({'movies': [movie]})
+	output = template.render(context)
+	return HttpResponse(output)
+

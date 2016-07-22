@@ -13,7 +13,9 @@
 {% for m in movies %}
 
 <li>
+<a href="/movie/{{ m.slug }}">
 Title: {{ m.title }}, Director: {{ m.director }}, Year: {{ m.year }}
+</a>
 </li>
 
 {% endfor %}
