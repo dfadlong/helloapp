@@ -2,6 +2,11 @@
 <head><title>Movie Site</title></head>
 <body>
 
+<form action="{% url 'root' %}" method="GET">
+<input type="text" name="director">
+<input type="submit" value="Search">
+</form>
+
 {% block header %}
 A movie
 {% endblock %}

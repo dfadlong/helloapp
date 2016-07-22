@@ -20,12 +20,17 @@ def show_movie(request):
 	num = len(movie_list)
 	template = loader.get_template(
 		'movielist/movie_detail.html')
-	# Only take the first movie.
+
+	if page < len(movie_list) / 10:
+		next_page = page + 1
+	else:
+		next_page = None
+		
 	context = {
 		'movies': movie_list[page * 10: page * 10 + 10],
 		'num': num,
 		'director': director,
-		'next_page': page + 1,
+		'next_page': next_page,
 	}
 	output = template.render(context)
 	return HttpResponse(output)

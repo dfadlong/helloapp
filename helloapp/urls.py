@@ -21,6 +21,7 @@ from movielist.views import show_single_movie
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', show_movie),
-    url(r'^movie/([\w-]+)$', show_single_movie)
+    url(r'^$', show_movie, name='root'),
+    url(r'^movie/([\w-]+)$', show_single_movie,
+    	name='single_movie')
 ]

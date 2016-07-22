@@ -2,6 +2,9 @@
 
 
 {% block header %}
+
+<p><a href="{% url 'root' %}">Home</a></p>
+
 <h2>{{ movie.title }}</h2>
 {% endblock %}
 
@@ -13,7 +16,7 @@
 {% for m in movies %}
 
 <li>
-<a href="/movie/{{ m.slug }}">
+<a href="{% url 'single_movie' m.slug %}">
 Title: {{ m.title }}, Director: {{ m.director }}, Year: {{ m.year }}
 </a>
 </li>
@@ -22,6 +25,10 @@ Title: {{ m.title }}, Director: {{ m.director }}, Year: {{ m.year }}
 
 </ul>
 
+{% if next_page %}
+
 <a href="/?director={{ director }}&amp;page={{ next_page }}">Next</a>
+
+{% endif %}
 
 {% endblock %}
